@@ -4,7 +4,7 @@ public class PersonQueueManager {
     private String lastName;
     private String firstName;
     private int age;
-    public static Queue<PersonQueueManager> personQueue;
+    public static Queue<PersonQueueManager> personQueue = new LinkedList<>();
     String[] lastNameArray;
     int[] ageArray;
 
@@ -14,15 +14,14 @@ public class PersonQueueManager {
         this.age = age;
     }
 
-    public void addToQueue(PersonQueueManager person) {
+    public static void addToQueue(PersonQueueManager person) {
         personQueue.add(person);
-        System.out.println("Person \"" + person + "\" has been added to the queue.");
     }
 
     public void removeFromQueue() {
         PersonQueueManager removedPerson = personQueue.element();
         personQueue.remove();
-        System.out.print(removedPerson + " has been removed from the queue.")
+        System.out.print(removedPerson + " has been removed from the queue.");
     }
 
     public PersonQueueManager[] sortByLastName() {
@@ -43,7 +42,7 @@ public class PersonQueueManager {
         return QueueSortingTools.finalSort(personArray);
     }
 
-    public static StringBuilder printAgeSortedQueue() {
+    public  StringBuilder printAgeSortedQueue() {
         StringBuilder queueString = new StringBuilder();
         for (PersonQueueManager person : sortByAge()) {
             queueString.append("Full Name: " + person.firstName + " " + person.lastName +
@@ -52,7 +51,7 @@ public class PersonQueueManager {
         return queueString;
     }
 
-        public static StringBuilder printLastNameSortedQueue() {
+        public StringBuilder printLastNameSortedQueue() {
             StringBuilder queueString2 = new StringBuilder();
             for (PersonQueueManager person : sortByLastName()) {
                 queueString2.append("Full Name: " + person.firstName + " " + person.lastName +
@@ -65,8 +64,8 @@ public class PersonQueueManager {
             PersonQueueManager[] personArray = personQueue.toArray(new PersonQueueManager[5]);
             StringBuilder queueString3 = new StringBuilder();
             for (PersonQueueManager person : personArray){
-            queueString3.append("Full Name: " + person.firstName + " " + person.lastName +
-                        "Age: " + person.age + "\n\n");
+            queueString3.append("Name: " + person.firstName + " " + person.lastName +
+                        "; Age: " + person.age + "\n\n");
             }
             return queueString3;
         }

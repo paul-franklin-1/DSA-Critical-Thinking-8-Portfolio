@@ -1,5 +1,3 @@
-import java.util.LinkedList;
-import java.util.Queue;
 public  class QueueSortingTools {
     static int[] indexArray = {0, 1, 2, 3, 4};
 

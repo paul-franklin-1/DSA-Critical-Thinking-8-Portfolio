@@ -1,13 +1,12 @@
 import java.util.Scanner;
-
 public class MainQueueCreator {
     public static void main(String[] Args) {
         try (Scanner scnr = new Scanner(System.in)) {
             System.out.println("Please enter information for five people:");
             for (int i = 0; i < 5; i++) {
-                System.out.println("Enter first name for Person #" + i + 1 + ": ");
+                System.out.println("Enter first name for Person #" + (i + 1) + ": ");
                 String firstName = scnr.nextLine();
-                System.out.println("Enter last name for Person #" + i + 1 + ": ");
+                System.out.println("Enter last name for Person #" + (i + 1) + ": ");
                 String lastName = scnr.nextLine();
                 System.out.println("Enter age of Person #" + (i + 1) + ": ");
                 while (!scnr.hasNextInt()) {
@@ -17,8 +16,9 @@ public class MainQueueCreator {
                 int age = scnr.nextInt();
                 scnr.nextLine();
                 PersonQueueManager person = new PersonQueueManager(lastName,firstName,age);
+                PersonQueueManager.addToQueue(person);
             }
-            PersonQueueManager.printCurrentQueue();
+            System.out.println(PersonQueueManager.printCurrentQueue());
         }
 
 
