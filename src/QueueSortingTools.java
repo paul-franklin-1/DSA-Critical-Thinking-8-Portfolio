@@ -1,48 +1,74 @@
 public  class QueueSortingTools {
-    public static int partition(String[] lastNameArray, int low, int high){
+    public static void quickSortArray(String arr[], int low, int high) {
+        if (low < high) {
+            int pi = partition(arr, low, high);
+            quickSortArray(arr, low, pi - 1);
+            quickSortArray(arr, pi + 1, high);
+        }
+    }
 
-        int pivot = arr[high];
-        int i = (low-1); // index of smaller element
-        for (int j=low; j<high; j++)
-        {
-            // If current element is smaller than or
-            // equal to pivot
-            if (arr[j] <= pivot)
-            {
+    public static void quickSortArray(int arr[], int low, int high) {
+        if (low < high) {
+            int pi = partition(arr, low, high);
+            quickSortArray(arr, low, pi - 1);
+            quickSortArray(arr, pi + 1, high);
+        }
+    }
+
+    public static int partition(String[] arr, int low, int high) {
+        String pivot = arr[high];
+        int[] indexArray = {0, 1, 2, 3, 4};
+        int i = (low - 1);
+        for (int j = low; j < high; j++) {
+            if (arr[j].compareTo(pivot) > 0) {
                 i++;
+                int indexTemp = indexArray[i];
+                indexArray[i] = indexArray[j];
+                indexArray[j] = indexTemp;
+                String temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+        int indexTemp = indexArray[i + 1];
+        indexArray[i + 1] = indexArray[high];
+        indexArray[high] = indexTemp;
 
-                // swap arr[i] and arr[j]
+        String temp = arr[i + 1];
+        arr[i + 1] = arr[high];
+        arr[high] = temp;
+        return i + 1;
+    }
+
+    public static int partition(int[] arr, int low, int high) {
+        int pivot = arr[high];
+        int[] indexArray = {0, 1, 2, 3, 4};
+        int i = (low - 1);
+        for (int j = low; j < high; j++) {
+            if (arr[j] <= pivot) {
+                i++;
+                int indexTemp = indexArray[i];
+                indexArray[i] = indexArray[j];
+                indexArray[j] = indexTemp;
                 int temp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = temp;
             }
         }
+        int indexTemp = indexArray[i + 1];
+        indexArray[i + 1] = indexArray[high];
+        indexArray[high] = indexTemp;
 
-        // swap arr[i+1] and arr[high] (or pivot)
-        int temp = arr[i+1];
-        arr[i+1] = arr[high];
+        int temp = arr[i + 1];
+        arr[i + 1] = arr[high];
         arr[high] = temp;
-
-        return i+1;
-    }
-
-
-        /* The main function that implements QuickSort()
-          arr[] --> Array to be sorted,
-          low  --> Starting index,
-          high  --> Ending index */
-        void sort(int arr[], int low, int high)
-        {
-            if (low < high)
-            {
-                /* pi is partitioning index, arr[pi] is
-                  now at right place */
-                int pi = partition(arr, low, high);
-
-                // Recursively sort elements before
-                // partition and after partition
-                sort(arr, low, pi-1);
-                sort(arr, pi+1, high);
-            }
+        return i + 1;
+}
+    public static void sortQueueBasedOnArray(int sortedArray,PersonQueueManager[] personQueue){
+        for(int i = 0;i<5;i++) {
+            if personQueue[i] ==
         }
-    }
+        }
+        }
+
+
