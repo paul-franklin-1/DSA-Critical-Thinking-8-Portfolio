@@ -14,5 +14,19 @@ public class PersonQueueManager {
         personQueue.add(person);
         System.out.println("Person \"" + person + "\" has been added to the queue.");
     }
+    public void sortByLastName(PersonQueueManager person){
 
-}
+    }
+    public void sortByAge(PersonQueueManager person){
+
+    }
+    public StringBuilder printQueue(){
+        StringBuilder queueString = new StringBuilder();
+        for (PersonQueueManager person : personQueue) {
+            queueString.append("Full Name: " + person.firstName + " " + person.lastName +
+                    "Age: " + person.age + "\n\n");
+            return queueString;
+        }
+
+
+}}
