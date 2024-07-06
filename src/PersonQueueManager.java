@@ -43,7 +43,7 @@ public class PersonQueueManager {
         return QueueSortingTools.finalSort(personArray);
     }
 
-    public StringBuilder printAgeSortedQueue() {
+    public static StringBuilder printAgeSortedQueue() {
         StringBuilder queueString = new StringBuilder();
         for (PersonQueueManager person : sortByAge()) {
             queueString.append("Full Name: " + person.firstName + " " + person.lastName +
@@ -52,12 +52,22 @@ public class PersonQueueManager {
         return queueString;
     }
 
-        public StringBuilder printLastNameSortedQueue() {
+        public static StringBuilder printLastNameSortedQueue() {
             StringBuilder queueString2 = new StringBuilder();
             for (PersonQueueManager person : sortByLastName()) {
                 queueString2.append("Full Name: " + person.firstName + " " + person.lastName +
                         "Age: " + person.age + "\n\n");
             }
             return queueString2;
+        }
+
+        public static StringBuilder printCurrentQueue(){
+            PersonQueueManager[] personArray = personQueue.toArray(new PersonQueueManager[5]);
+            StringBuilder queueString3 = new StringBuilder();
+            for (PersonQueueManager person : personArray){
+            queueString3.append("Full Name: " + person.firstName + " " + person.lastName +
+                        "Age: " + person.age + "\n\n");
+            }
+            return queueString3;
         }
     }
