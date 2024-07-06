@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+import java.util.Queue;
 public  class QueueSortingTools {
     public static void quickSortArray(String arr[], int low, int high) {
         if (low < high) {
@@ -63,12 +65,15 @@ public  class QueueSortingTools {
         arr[i + 1] = arr[high];
         arr[high] = temp;
         return i + 1;
+    }
+
+    public static void finalSort(int[] indexArray, PersonQueueManager[] personArray) {
+        for (int p = 0; p < 5; p++) {
+            for (int i = 0; p < 5; i++) {
+                if (indexArray[i] == p) {
+                    personArray[p] = personArray[i];
+                }
+            }
+        }
+    }
 }
-    public static void sortQueueBasedOnArray(int sortedArray,PersonQueueManager[] personQueue){
-        for(int i = 0;i<5;i++) {
-            if personQueue[i] ==
-        }
-        }
-        }
-
-
