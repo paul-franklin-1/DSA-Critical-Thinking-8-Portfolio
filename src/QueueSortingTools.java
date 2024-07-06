@@ -1,5 +1,5 @@
 public  class QueueSortingTools {
-    public static int partition(PersonQueueManager[] personQueue, int low, int high){
+    public static int partition(String[] lastNameArray, int low, int high){
 
         int pivot = arr[high];
         int i = (low-1); // index of smaller element

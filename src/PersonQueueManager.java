@@ -5,6 +5,8 @@ public class PersonQueueManager {
     private String firstName;
     private int age;
     public Queue<PersonQueueManager> personQueue;
+    String[] lastNameArray;
+    int[] ageArray;
     public PersonQueueManager(String lastName, String firstName, int age){
         this.lastName = lastName;
         this.firstName = firstName;
@@ -15,7 +17,11 @@ public class PersonQueueManager {
         System.out.println("Person \"" + person + "\" has been added to the queue.");
     }
     public void sortByLastName(PersonQueueManager person){
-        PersonQueueManager[] lastNameArray = personQueue.toArray(new PersonQueueManager[5]);
+        PersonQueueManager[] personArray = personQueue.toArray(new PersonQueueManager[5]);
+        for(int i = 0; i < 5;i++){
+            lastNameArray[i] = personArray[i].lastName;
+        }
+        QueueSortingTools.partition(lastNameArray,0,4);
         int firstHighIndex = (personQueue.size()-1);
         QueueSortingTools.partition(lastNameArray,0,firstHighIndex);
 
