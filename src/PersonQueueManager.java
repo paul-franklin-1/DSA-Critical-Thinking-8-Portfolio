@@ -7,46 +7,57 @@ public class PersonQueueManager {
     public static Queue<PersonQueueManager> personQueue;
     String[] lastNameArray;
     int[] ageArray;
-    public PersonQueueManager(String lastName, String firstName, int age){
+
+    public PersonQueueManager(String lastName, String firstName, int age) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.age = age;
     }
-    public void addToQueue(PersonQueueManager person){
+
+    public void addToQueue(PersonQueueManager person) {
         personQueue.add(person);
         System.out.println("Person \"" + person + "\" has been added to the queue.");
     }
 
-    public void removeFromQueue(){
+    public void removeFromQueue() {
         PersonQueueManager removedPerson = personQueue.element();
         personQueue.remove();
         System.out.print(removedPerson + " has been removed from the queue.")
     }
 
-    public void sortByLastName(PersonQueueManager person){
+    public PersonQueueManager[] sortByLastName() {
         PersonQueueManager[] personArray = personQueue.toArray(new PersonQueueManager[5]);
-        for(int i = 0; i < 5;i++){
+        for (int i = 0; i < 5; i++) {
             lastNameArray[i] = personArray[i].lastName;
         }
-        QueueSortingTools.quickSorter(lastNameArray,0,4);
+        QueueSortingTools.quickSortArray(lastNameArray, 0, 4);
+        return QueueSortingTools.finalSort(personArray);
     }
 
-    public void sortByAge(PersonQueueManager person){
+    public PersonQueueManager[] sortByAge() {
         PersonQueueManager[] personArray = personQueue.toArray(new PersonQueueManager[5]);
-        for(int i = 0; i < 5;i++){
+        for (int i = 0; i < 5; i++) {
             ageArray[i] = personArray[i].age;
         }
-        QueueSortingTools.quickSortArray(lastNameArray,0,4);
-        QueueSortingTools.
+        QueueSortingTools.quickSortArray(ageArray, 0, 4);
+        return QueueSortingTools.finalSort(personArray);
     }
 
-    public StringBuilder printQueue(){
+    public StringBuilder printAgeSortedQueue() {
         StringBuilder queueString = new StringBuilder();
-        for (PersonQueueManager person : personQueue) {
+        for (PersonQueueManager person : sortByAge()) {
             queueString.append("Full Name: " + person.firstName + " " + person.lastName +
                     "Age: " + person.age + "\n\n");
-            return queueString;
         }
+        return queueString;
+    }
 
-
-}}
+        public StringBuilder printLastNameSortedQueue() {
+            StringBuilder queueString2 = new StringBuilder();
+            for (PersonQueueManager person : sortByLastName()) {
+                queueString2.append("Full Name: " + person.firstName + " " + person.lastName +
+                        "Age: " + person.age + "\n\n");
+            }
+            return queueString2;
+        }
+    }
