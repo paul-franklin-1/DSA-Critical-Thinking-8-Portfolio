@@ -5,7 +5,7 @@ public class PersonQueueManager {
     private String firstName;
     private int age;
     public static Queue<PersonQueueManager> personQueue = new LinkedList<>();
-    String[] lastNameArray;
+    static String[] lastNameArray = {"0","0","0","0","0"};
     static int[] ageArray = {0, 0, 0, 0, 0};
 
     public PersonQueueManager(String lastName, String firstName, int age) {
@@ -18,13 +18,7 @@ public class PersonQueueManager {
         personQueue.add(person);
     }
 
-    public void removeFromQueue() {
-        PersonQueueManager removedPerson = personQueue.element();
-        personQueue.remove();
-        System.out.print(removedPerson + " has been removed from the queue.");
-    }
-
-    public PersonQueueManager[] sortByLastName() {
+    public static PersonQueueManager[] sortByLastName() {
         PersonQueueManager[] personArray = personQueue.toArray(new PersonQueueManager[5]);
         for (int i = 0; i < 5; i++) {
             lastNameArray[i] = personArray[i].lastName;
@@ -42,7 +36,7 @@ public class PersonQueueManager {
         return QueueSortingTools.finalSort(personArray);
     }
 
-    public static StringBuilder printQueueSortedByAge() {
+    public static StringBuilder printQueueReverseSortedByAge() {
         StringBuilder queueString = new StringBuilder();
         for (PersonQueueManager person : sortByAge()) {
             queueString.append("Full Name: " + person.firstName + " " + person.lastName +
@@ -51,11 +45,11 @@ public class PersonQueueManager {
         return queueString;
     }
 
-        public StringBuilder printQueueSortedLastName() {
+        public static StringBuilder printQueueReverseSortedByLastName() {
             StringBuilder queueString2 = new StringBuilder();
             for (PersonQueueManager person : sortByLastName()) {
                 queueString2.append("Full Name: " + person.firstName + " " + person.lastName +
-                        "Age: " + person.age + "\n\n");
+                        " Age: " + person.age + "\n\n");
             }
             return queueString2;
         }
@@ -68,5 +62,10 @@ public class PersonQueueManager {
                         "; Age: " + person.age + "\n\n");
             }
             return queueString3;
+        }
+        public static int[] copyIndexArray() {
+            int[] copiedArray = new int[QueueSortingTools.indexArray.length];
+            System.arraycopy(QueueSortingTools.indexArray, 0, copiedArray, 0, QueueSortingTools.indexArray.length);
+            return copiedArray;
         }
     }

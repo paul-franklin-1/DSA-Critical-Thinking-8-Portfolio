@@ -15,15 +15,15 @@ public class MainQueueCreator {
                 }
                 int age = scnr.nextInt();
                 scnr.nextLine();
-                PersonQueueManager person = new PersonQueueManager(lastName,firstName,age);
+                PersonQueueManager person = new PersonQueueManager(lastName, firstName, age);
                 PersonQueueManager.addToQueue(person);
             }
-            System.out.println(PersonQueueManager.printQueueSortedByAge());
-            //System.out.println(PersonQueueManager.printUnsortedQueue());
+            System.out.println("Unsorted Queue: ");
+            System.out.println(PersonQueueManager.printUnsortedQueue());
+            System.out.println("Queue Reverse Sorted by Last Name: ");
+            System.out.println(PersonQueueManager.printQueueReverseSortedByLastName());
+            System.out.println("Queue Reverse Sorted by Age: ");
+            System.out.println(PersonQueueManager.printQueueReverseSortedByAge());
         }
-
-
-
-
     }
 }
