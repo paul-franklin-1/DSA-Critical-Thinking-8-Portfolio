@@ -7,7 +7,6 @@ public class PersonQueueManager {
     public static Queue<PersonQueueManager> personQueue = new LinkedList<>();
     static String[] lastNameArray = {"0","0","0","0","0"};
     static int[] ageArray = {0, 0, 0, 0, 0};
-
     public PersonQueueManager(String lastName, String firstName, int age) {
         this.lastName = lastName;
         this.firstName = firstName;
