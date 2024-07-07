@@ -18,7 +18,7 @@ public  class QueueSortingTools {
     }
 
     public static int partition(String[] arr, int low, int high) {
-        int pivotIndex = PersonQueueManager.copyIndexArray()[high];
+        int pivotIndex = indexArray[high];
         String pivot = arr[pivotIndex];
         int i = (low - 1);
         for (int j = low; j < high; j++) {
@@ -39,7 +39,8 @@ public  class QueueSortingTools {
     }
 
     public static int partition(int[] arr, int low, int high) {
-        int pivot = arr[high];
+        int pivotIndex = indexArray[high];
+        int pivot = arr[pivotIndex];
         int i = (low - 1);
         for (int j = low; j < high; j++) {
             if (arr[j] <= pivot) {
@@ -58,7 +59,7 @@ public  class QueueSortingTools {
     public static PersonQueueManager[] finalSort(PersonQueueManager[] personArray) {
         PersonQueueManager[] finalSortedArray = new PersonQueueManager[5];
         for (int i = 0; i < 5; i++) {
-            finalSortedArray[i] = personArray[indexArray[i]];
+            finalSortedArray[4-i] = personArray[indexArray[i]];
         }
         for(int i = 0; i<5; i++){
             indexArray[i] = i;

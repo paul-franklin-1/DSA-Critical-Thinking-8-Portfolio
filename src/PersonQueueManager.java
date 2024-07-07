@@ -63,9 +63,4 @@ public class PersonQueueManager {
             }
             return queueString3;
         }
-        public static int[] copyIndexArray() {
-            int[] copiedArray = new int[QueueSortingTools.indexArray.length];
-            System.arraycopy(QueueSortingTools.indexArray, 0, copiedArray, 0, QueueSortingTools.indexArray.length);
-            return copiedArray;
-        }
     }
