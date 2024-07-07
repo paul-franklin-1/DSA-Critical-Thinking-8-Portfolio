@@ -18,7 +18,8 @@ public class MainQueueCreator {
                 PersonQueueManager person = new PersonQueueManager(lastName,firstName,age);
                 PersonQueueManager.addToQueue(person);
             }
-            System.out.println(PersonQueueManager.printCurrentQueue());
+            System.out.println(PersonQueueManager.printQueueSortedByAge());
+            //System.out.println(PersonQueueManager.printUnsortedQueue());
         }
 
 

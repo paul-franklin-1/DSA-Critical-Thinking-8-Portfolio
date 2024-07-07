@@ -51,12 +51,12 @@ public  class QueueSortingTools {
         return i + 1;
     }
 
-    public static PersonQueueManager[] finalSort(PersonQueueManager[] personQueue) {
+    public static PersonQueueManager[] finalSort(PersonQueueManager[] personArray) {
         PersonQueueManager[] finalSortedArray = new PersonQueueManager[5];
-        for (int p = 0; p < 5; p++) {
-            for (int i = 0; p < 5; i++) {
-                if (indexArray[i] == p) {
-                    personQueue[p] = finalSortedArray[i];
+        for (int p = 0; p<5; p++) {
+            for (int i = 0; i<5; i++) {
+                if (indexArray[i] == p){
+                    finalSortedArray[p] = personArray[i];
                 }
             }
         }

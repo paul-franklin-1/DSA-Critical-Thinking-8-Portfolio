@@ -6,7 +6,7 @@ public class PersonQueueManager {
     private int age;
     public static Queue<PersonQueueManager> personQueue = new LinkedList<>();
     String[] lastNameArray;
-    int[] ageArray;
+    static int[] ageArray = {0, 0, 0, 0, 0};
 
     public PersonQueueManager(String lastName, String firstName, int age) {
         this.lastName = lastName;
@@ -33,7 +33,7 @@ public class PersonQueueManager {
         return QueueSortingTools.finalSort(personArray);
     }
 
-    public PersonQueueManager[] sortByAge() {
+    public static PersonQueueManager[] sortByAge() {
         PersonQueueManager[] personArray = personQueue.toArray(new PersonQueueManager[5]);
         for (int i = 0; i < 5; i++) {
             ageArray[i] = personArray[i].age;
@@ -42,7 +42,7 @@ public class PersonQueueManager {
         return QueueSortingTools.finalSort(personArray);
     }
 
-    public  StringBuilder printAgeSortedQueue() {
+    public static StringBuilder printQueueSortedByAge() {
         StringBuilder queueString = new StringBuilder();
         for (PersonQueueManager person : sortByAge()) {
             queueString.append("Full Name: " + person.firstName + " " + person.lastName +
@@ -51,7 +51,7 @@ public class PersonQueueManager {
         return queueString;
     }
 
-        public StringBuilder printLastNameSortedQueue() {
+        public StringBuilder printQueueSortedLastName() {
             StringBuilder queueString2 = new StringBuilder();
             for (PersonQueueManager person : sortByLastName()) {
                 queueString2.append("Full Name: " + person.firstName + " " + person.lastName +
@@ -60,7 +60,7 @@ public class PersonQueueManager {
             return queueString2;
         }
 
-        public static StringBuilder printCurrentQueue(){
+        public static StringBuilder printUnsortedQueue(){
             PersonQueueManager[] personArray = personQueue.toArray(new PersonQueueManager[5]);
             StringBuilder queueString3 = new StringBuilder();
             for (PersonQueueManager person : personArray){
