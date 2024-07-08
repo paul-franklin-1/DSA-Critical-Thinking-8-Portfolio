@@ -1,12 +1,12 @@
 import java.util.Scanner;
 
 /**
- * driver class to harbor main method that will permit user to instantiate, sort and
- * print array representations of Queue<PersonQueueManager> personQueue
+ * Driver class to harbor main method that will permit user to instantiate, sort and
+ * print array representations of Queue<PersonQueueManager> personQueue.
  */
 public class MainQueueCreator {
     /**
-     * main method serves as entry point into program
+     * Main method serves as entry point into program.
      * @param Args
      */
     public static void main(String[] Args) {
@@ -33,6 +33,8 @@ public class MainQueueCreator {
             System.out.println(PersonQueueManager.printQueueReverseSortedByLastName());
             System.out.println("***Queue Reverse Sorted by Age: ");
             System.out.println(PersonQueueManager.printQueueReverseSortedByAge());
+        } catch (Exception e) {
+            System.err.println("Unexpected error in main method: " + e.getMessage());
         }
     }
 }
