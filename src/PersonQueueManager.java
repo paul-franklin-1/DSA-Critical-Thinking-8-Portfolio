@@ -2,9 +2,9 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class PersonQueueManager {
-    private String lastName;
-    private String firstName;
-    private int age;
+    public String lastName;
+    public String firstName;
+    public int age;
 
     /**
      * Initialization of main Queue collection.

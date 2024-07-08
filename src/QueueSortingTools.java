@@ -37,7 +37,7 @@ public class QueueSortingTools {
                 quickSortArray(arr, pi + 1, high);
             }
         } catch (Exception e) {
-            **System.err.println("Error during quick sort of integer array: " + e.getMessage());
+            System.err.println("Error during quick sort of integer array: " + e.getMessage());
         }
     }
 
